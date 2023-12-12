@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.pmdm.primeraappcompose.ui.theme.PrimeraAppComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -53,6 +55,59 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+}
+
+
+
+@Composable
+fun ConstraintExample(){
+    ConstraintLayout(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+        val(box1, box2, box3, box4, box5, box6, box7, box8, box9) = createRefs()
+        val tamanyo = 65
+
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box1) {
+            bottom.linkTo(box2.top)
+            start.linkTo(box2.end)
+        })
+
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box2) {
+            bottom.linkTo(box4.top)
+            end.linkTo(box4.start)
+        })
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box3) {
+            bottom.linkTo(box4.top)
+            start.linkTo(box4.end)
+        })
+
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Black).constrainAs(box4) {
+                top.linkTo(parent.top)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                bottom.linkTo(parent.bottom)
+        })
+
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box5) {
+            top.linkTo(box4.bottom)
+            end.linkTo(box4.start)
+        })
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box6) {
+            top.linkTo(box4.bottom)
+            start.linkTo(box4.end)
+        })
+
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box7) {
+            top.linkTo(box5.bottom)
+            end.linkTo(box5.start)
+        })
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box8) {
+            top.linkTo(box5.bottom)
+            start.linkTo(box5.end)
+        })
+        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box9) {
+            top.linkTo(box6.bottom)
+            start.linkTo(box6.end)
+        })
+    }
 }
 
 @Composable
@@ -140,6 +195,6 @@ fun FirstApp() {
 @Composable
 fun GreetingPreview() {
     PrimeraAppComposeTheme {
-        FirstApp()
+        ConstraintExample()
     }
 }
