@@ -64,46 +64,49 @@ fun ConstraintExample(){
     ConstraintLayout(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         val(box1, box2, box3, box4, box5, box6, box7, box8, box9) = createRefs()
         val tamanyo = 65
+        val fila1fila5 = Color.Blue
+        val fila2fila4 = Color.Cyan
+        val fila3 = Color.Black
 
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box1) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila1fila5).constrainAs(box1) {
             bottom.linkTo(box2.top)
             start.linkTo(box2.end)
         })
 
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box2) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila2fila4).constrainAs(box2) {
             bottom.linkTo(box4.top)
             end.linkTo(box4.start)
         })
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box3) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila2fila4).constrainAs(box3) {
             bottom.linkTo(box4.top)
             start.linkTo(box4.end)
         })
 
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Black).constrainAs(box4) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila3).constrainAs(box4) {
                 top.linkTo(parent.top)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
                 bottom.linkTo(parent.bottom)
         })
 
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box5) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila2fila4).constrainAs(box5) {
             top.linkTo(box4.bottom)
             end.linkTo(box4.start)
         })
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Cyan).constrainAs(box6) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila2fila4).constrainAs(box6) {
             top.linkTo(box4.bottom)
             start.linkTo(box4.end)
         })
 
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box7) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila1fila5).constrainAs(box7) {
             top.linkTo(box5.bottom)
             end.linkTo(box5.start)
         })
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box8) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila1fila5).constrainAs(box8) {
             top.linkTo(box5.bottom)
             start.linkTo(box5.end)
         })
-        Box(modifier = Modifier.size(tamanyo.dp).background(Color.Blue).constrainAs(box9) {
+        Box(modifier = Modifier.size(tamanyo.dp).background(fila1fila5).constrainAs(box9) {
             top.linkTo(box6.bottom)
             start.linkTo(box6.end)
         })
