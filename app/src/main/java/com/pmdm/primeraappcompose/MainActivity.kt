@@ -67,6 +67,8 @@ fun ConstraintExample(){
         val fila1fila5 = Color.Blue
         val fila2fila4 = Color.Cyan
         val fila3 = Color.Black
+        val guiaTop = createGuidelineFromTop(1/3f)
+        val guiaStart = createGuidelineFromStart(40.dp)
 
         Box(modifier = Modifier.size(tamanyo.dp).background(fila1fila5).constrainAs(box1) {
             bottom.linkTo(box2.top)
@@ -83,8 +85,8 @@ fun ConstraintExample(){
         })
 
         Box(modifier = Modifier.size(tamanyo.dp).background(fila3).constrainAs(box4) {
-                top.linkTo(parent.top)
-                start.linkTo(parent.start)
+                top.linkTo(guiaTop)
+                start.linkTo(guiaStart)
                 end.linkTo(parent.end)
                 bottom.linkTo(parent.bottom)
         })
